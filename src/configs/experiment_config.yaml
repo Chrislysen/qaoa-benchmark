@@ -1,0 +1,29 @@
+# Experiment configuration for QAOA Pipeline Optimizer benchmark
+
+graphs:
+  n_nodes: 10
+  edge_prob: 0.5
+  seeds: [42, 123, 456, 789, 1000]
+
+noise:
+  single_gate_error: 0.01
+  two_gate_error: 0.05
+  readout_error_rate: 0.03
+
+pipeline_space:
+  p: [1, 2, 3, 4]
+  shots: [64, 128, 256, 512, 1024, 2048]
+  optimization_level: [0, 1, 2, 3]
+  init: [random, linear_ramp]
+
+budgets: [10, 15, 20, 25, 30, 40, 50]
+
+seeds_per_experiment: 10
+
+# Fixed pipeline for COBYLA and SPSA baselines
+# These are generic reasonable defaults — NOT cherry-picked to be optimal
+fixed_pipeline:
+  p: 1
+  shots: 1024
+  optimization_level: 1
+  init: random
